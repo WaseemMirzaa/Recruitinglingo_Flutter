@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:recruitinglingo/src/ui/screens/add_recruiting_screen.dart';
+import 'package:recruitinglingo/src/ui/screens/recruiting_lingo_screen.dart';
 import 'package:recruitinglingo/src/ui/screens/stat_update_screen.dart';
 import 'package:recruitinglingo/src/ui/screens/user/my_profile_screen.dart';
 import 'package:recruitinglingo/src/util/Colors.dart';
@@ -20,8 +22,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     ToastContext().init(context);
     final tabs = [
-      const StatUpdate(),
-      Container(),
+      const RecruitingLingo(),
+      const AddRecruiting(),
       const MyProfile()
     ];
 
@@ -78,6 +80,9 @@ class _MainScreenState extends State<MainScreen> {
       child: FloatingActionButton(
         elevation: 10.0,
         onPressed:(){
+          setState(() {
+            _cIndex = 1;
+          });
         },
         tooltip: 'Add',
         backgroundColor: appColor,

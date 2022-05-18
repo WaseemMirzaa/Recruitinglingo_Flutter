@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
 
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const MyProfile()),
+                          MaterialPageRoute(builder: (context) => const SignUp()),
                         );
                       }, title: 'SIGN UP', color: Colors.black, textColor: Colors.white),
                     ],
