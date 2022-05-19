@@ -45,7 +45,7 @@ class _AddRecruitingState extends State<AddRecruiting> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
-          "Add Recruiting",
+          "Featured Messages",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,

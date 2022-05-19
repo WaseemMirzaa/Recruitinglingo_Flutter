@@ -20,7 +20,7 @@ class _RecruitingLingoState extends State<RecruitingLingo> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: const Text(
-          "Add Recruiting",
+          "Completed Lingos",
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
