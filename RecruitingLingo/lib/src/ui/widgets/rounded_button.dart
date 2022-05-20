@@ -20,11 +20,8 @@ class RoundedButton extends StatelessWidget {
         style: ElevatedButton.styleFrom(
             primary: color,
             minimumSize: const Size(150, 55),
-
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(50),
-
-
             )),
         onPressed: onPress,
         child: Text(

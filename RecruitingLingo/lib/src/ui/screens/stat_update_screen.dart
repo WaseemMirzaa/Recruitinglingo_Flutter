@@ -3,6 +3,7 @@ import 'package:recruitinglingo/src/ui/screens/main_screen.dart';
 import 'package:recruitinglingo/src/ui/widgets/input_textarea.dart';
 import 'package:toast/toast.dart';
 import '../../util/Colors.dart';
+import '../widgets/custom_dropdown.dart';
 import '../widgets/rounded_button.dart';
 
 class StatUpdate extends StatefulWidget {
@@ -10,13 +11,14 @@ class StatUpdate extends StatefulWidget {
   int screenIndex;
 
   @override
-  // ignore: no_logic_in_create_state
   State<StatUpdate> createState() => _StatUpdateState(screenIndex);
 }
 
 class _StatUpdateState extends State<StatUpdate> {
   int index = 0;
   _StatUpdateState(this.index);
+  final myController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class _StatUpdateState extends State<StatUpdate> {
             ),
             Text(
               "$index out 0f 8",
-              style: TextStyle(color: Colors.grey, fontSize: 10),
+              style: const TextStyle(color: Colors.grey, fontSize: 10),
             )
           ],
         ),
@@ -52,13 +54,43 @@ class _StatUpdateState extends State<StatUpdate> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Padding(
-              padding: EdgeInsets.all(10.0),
+              padding: EdgeInsets.fromLTRB(15, 0, 12, 10),
               child: Text(
                 "Lorem Ipsum is simply dummy text of the Printing?",
                 style: TextStyle(color: Colors.black),
               ),
             ),
-            const TextArea(hintText: "Answer"),
+            Center(
+              child: Container(
+                width: double.infinity,
+                margin: const EdgeInsets.fromLTRB(10, 5, 10, 5),
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Colors.white, borderRadius: BorderRadius.circular(5), border: Border.all(color: appColor)),
+                child: CustDropDown(
+                  items: const [
+                    CustDropdownMenuItem(
+                      value: "Test1",
+                      child: Text("Test1"),
+                    ),
+                    CustDropdownMenuItem(
+                      value: "Test2",
+                      child: Text("Test2"),
+                    ),
+
+                  ],
+                  hintText: "Please select any option",
+                  borderRadius: 5,
+                  onChanged: (val) {
+                   setState(() {
+                     myController.text = val;
+                   });
+                  },
+
+                ),
+              ),
+            ),
+            TextArea(hintText: "Answer", textHandler: myController),
             Row(
               children: [
                 Expanded(

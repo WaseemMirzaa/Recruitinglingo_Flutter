@@ -1,4 +1,5 @@
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:recruitinglingo/src/ui/screens/add_recruiting_screen.dart';
 import 'package:recruitinglingo/src/ui/screens/recruiting_lingo_screen.dart';
@@ -31,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
       resizeToAvoidBottomInset: false,
       body: tabs[_cIndex],
       bottomNavigationBar: bottomNavbar(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
       floatingActionButton: floatingActionButton(),
     );
   }
@@ -73,21 +74,29 @@ class _MainScreenState extends State<MainScreen> {
 
   // Floating Navigation Bar
   Widget floatingActionButton() => Padding(
-    padding: const EdgeInsets.fromLTRB(0, 75, 0, 0),
-    child: SizedBox(
-      width: 80.0,
-      height: 70.0,
-      child: FloatingActionButton(
-        elevation: 10.0,
-        onPressed:(){
-          setState(() {
-            _cIndex = 1;
-          });
-        },
-        tooltip: 'Add',
-        backgroundColor: appColor,
-        child: const Icon(Icons.add,size: 40,),
-      ),
+    padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        SizedBox(
+          width: 80.0,
+          height: 70.0,
+          child: FloatingActionButton(
+            elevation: 4.0,
+            onPressed:(){
+              setState(() {
+                _cIndex = 1;
+              });
+            },
+            tooltip: 'Add',
+            backgroundColor: appColor,
+            child: const Icon(Icons.add,size: 40,),
+            heroTag: "Hello",
+          ),
+        ),
+        const SizedBox(height: 3,),
+        const Text("Start New", style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),)
+      ],
     ),
   );
 
